@@ -150,7 +150,7 @@ class HTMLDATA{
     controls(...args){
         return this.ATTR(':controls',...args)
     }
-    input(...args){
+    on_input(...args){
         return this.ATTR('@input',...args)
     }
     aria_live(...args){
@@ -168,7 +168,7 @@ class HTMLDATA{
     scrollable(...args){
         return this.ATTR(':scrollable',...args)
     }
-    aria_label(...args){
+    bound_aria_label(...args){
         return this.ATTR(':aria-label',...args)
     }
     role(...args){
@@ -183,7 +183,7 @@ class HTMLDATA{
         if(typeof inp=="string"){
             return inp
         }
-        else if(parseOneInp(inp)){//its a dictionary / json object
+        else if(this.parseOneInp(inp)){//its a dictionary / json object
             let s=''
             for(let i in inp){
                 s+=` ${i}="${inp[i]}"`
@@ -211,3 +211,5 @@ function HTML(name,attr,children){
     return `<${name}${attrText}>${childrenText}`
 }
 console.log(HTML('div',{'class':'draw disp fun cool',':label':0},HTML(`hr`,{'style':'oopsy daisy lol'},'somehow')))
+
+if (typeof module !== 'undefined') module.exports = HTMLDATA;

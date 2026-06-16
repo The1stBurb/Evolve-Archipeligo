@@ -1,0 +1,524 @@
+<!-- Line Num: 216 -->
+<div class="example">
+  {
+  "year": "Galactic Standard Year",
+  "resource_Food_name": "Nom Noms"
+}
+</div>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 369 -->
+<b-tabs class="resTabs" v-model="s.spaceTabs" :animated="s.animated" @update:model-value="swapTab($event)">
+  <b-tab-item id="city" :visible="s.showCity" :label="label('city')" />
+  <b-tab-item id="space" :visible="s.showSpace" :label="label('local_space')" />
+  <b-tab-item id="interstellar" :visible="s.showDeep" :label="label('tab_interstellar')" />
+  <b-tab-item id="galaxy" :visible="s.showGalactic" :label="label('tab_galactic')" />
+  <b-tab-item id="portal" :visible="s.showPortal" :label="label('tab_portal')" />
+  <b-tab-item id="outerSol" :visible="s.showOuter" :label="label('outer_local_space')" />
+  <b-tab-item id="tauceti" :visible="s.showTau" :label="label('tab_tauceti')" />
+  <b-tab-item id="eden" :visible="s.showEden" :label="label('tab_eden')" />
+</b-tabs>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 467 -->
+<b-tabs class="resTabs" v-model="s.govTabs" :animated="s.animated" @update:model-value="swapTab(s.govTabs)">
+  <b-tab-item id="civic" :label="label('tab_gov')" />
+  <b-tab-item id="industry" class="industryTab" :visible="s.showIndustry" :label="label('tab_industry')" />
+  <b-tab-item id="powerGrid" class="powerGridTab" :visible="s.showPowerGrid" :label="label('tab_power_grid')" />
+  <b-tab-item id="military" class="militaryTab" :visible="s.showMil" :label="label('tab_military')" />
+  <b-tab-item id="mechLab" class="mechTab" :visible="s.showMechLab" :label="label('tab_mech')" />
+  <b-tab-item id="dwarfShipYard" class="ShipYardTab" :visible="s.showShipYard" :label="label('tab_shipyard')" />
+  <b-tab-item id="psychicPowers" class="psychicTab" :visible="s.showPsychic" :label="label('tab_psychic')" />
+  <b-tab-item id="supernatural" class="supernaturalTab" :visible="s.showWish" :label="label('tab_supernatural')" />
+</b-tabs>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 515 -->
+<div id="civics" class="tile is-parent" />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 517 -->
+<div id="r_civics" class="tile is-vertical is-parent civics" />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 583 -->
+<div id="civics" class="tile is-parent" />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 585 -->
+<div id="r_civics" class="tile is-vertical is-parent civics" />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 617 -->
+<div id="resQueue" class="resQueue" v-show="rq.display" />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 619 -->
+<div id="resContent">
+  <b-tabs class="resTabs" v-model="s.resTabs" :animated="s.animated">
+    <b-tab-item id="tech" :label="label_f('new')" />
+    <b-tab-item id="oldTech" :label="label_f('old')" />
+  </b-tabs>
+</div>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 648 -->
+<b-tabs class="resTabs" v-model="s.marketTabs" :animated="s.animated" @update:model-value="swapTab(s.marketTabs)">
+  <b-tab-item id="market" :visible="s.showMarket" :label="label('tab_market')" />
+  <b-tab-item id="resStorage" :visible="s.showStorage" :label="label('tab_storage')" />
+  <b-tab-item id="resEjector" :visible="s.showEjector" :label="label('tab_ejector')" />
+  <b-tab-item id="resCargo" :visible="s.showCargo" :label="label('tab_cargo')" />
+  <b-tab-item id="resAlchemy" :visible="s.showAlchemy" :label="label('tab_alchemy')" />
+</b-tabs>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 697 -->
+<div id="apra" class="arpa">
+  <b-tabs class="resTabs" v-model="s.arpa.arpaTabs" :animated="s.animated">
+    <b-tab-item id="arpaPhysics" :visible="s.arpa.physics" label="{{ label('tab_arpa_projects') }}" />
+    <b-tab-item id="arpaGenetics" :visible="s.arpa.genetics" label="{{ loc(global.race['artifical'] ? 'tab_arpa_machine' : 'tab_arpa_genetics') }}" />
+    <b-tab-item id="arpaCrispr" :visible="s.arpa.crispr" label="{{ label('tab_arpa_crispr') }}" />
+    <b-tab-item id="arpaBlood" :visible="s.arpa.blood" label="{{ label('tab_arpa_blood') }}" />
+  </b-tabs>
+</div>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 728 -->
+<b-tabs class="resTabs" v-model="s.statsTabs" :animated="s.animated">
+  <b-tab-item id="stats" :label="label('tab_stats')" />
+  <b-tab-item id="achieve" :label="label('tab_achieve')" />
+  <b-tab-item id="perks" :label="label('tab_perks')" />
+</b-tabs>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 773 -->
+<div id="topBar" class="topBar">
+  <h2 class="is-sr-only">
+    Top Bar
+  </h2>
+  <span class="planetWrap">
+    <span class="planet">
+      {{ planet(race.species) }}
+    </span>
+    <span class="universe" v-show="showUniverse()">
+      {{ universe(race.universe) }}
+    </span>
+    <span class="pet" id="playerPet" v-show="showPet()" @click="petPet()" />
+    <span class="simulation" v-show="showSim()">
+      {{ loc(`evo_challenge_simulation`) }}
+    </span>
+  </span>
+  <span class="calendar">
+    <span class="infoTimer" id="infoTimer" />
+    <span v-show="city.calendar.day">
+      <span class="is-sr-only" v-html="sign()" />
+      <span id="astroSign" class="astro" v-html="getAstroSign()" />
+      <b-tooltip :label="moon()" :aria-label="moon()" position="is-bottom" size="is-small" multilined animated>
+        <i id="moon" class="moon wi" />
+      </b-tooltip>
+      <span class="year">
+        {{ label('year') }}
+        <span class="has-text-warning">
+          {{ city.calendar.year }}
+        </span>
+      </span>
+      <span class="day">
+        {{ label('day') }}
+        <span class="has-text-warning">
+          {{ city.calendar.day }}
+        </span>
+      </span>
+      <span class="season">
+        {{ season() }}
+      </span>
+      <b-tooltip :label="weather()" :aria-label="weather()" position="is-bottom" size="is-small" multilined animated>
+        <i id="weather" class="weather wi" />
+      </b-tooltip>
+      <b-tooltip :label="temp()" :aria-label="temp()" position="is-bottom" size="is-small" multilined animated>
+        <i id="temp" class="temp wi" />
+      </b-tooltip>
+      <b-tooltip :label="atRemain()" v-show="s.at" :aria-label="atRemain()" position="is-bottom" size="is-small" multilined animated>
+        <span class="atime has-text-caution">
+          {{ remain(s.at) }}
+        </span>
+      </b-tooltip>
+      <span role="button" class="atime" style="padding: 0 0.5rem; margin-left: 0.5rem; cursor: pointer" @click="pause" :aria-label="pausedesc()">
+        <span id="pausegame" />
+      </span>
+    </span>
+  </span>
+  <span class="version" id="versionLog">
+    <a href="wiki.html#changelog" target="_blank" />
+  </span>
+</div>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 800 -->
+<div id="main" class="main" />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 801 -->
+<div class="columns is-gapless" />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 806 -->
+<div class="column is-one-quarter leftColumn">
+  <div id="race" class="race colHeader">
+    <h2 class="is-sr-only">
+      Race Info
+    </h2>
+    <div class="name">
+      {{ name() }}
+    </div>
+    <div class="morale-contain">
+      <span id="morale" v-show="city.morale.current" class="morale">
+        {{ label('morale') }}
+        <span class="has-text-warning">
+          {{ mRound(city.morale.current) }}%
+        </span>
+      </span>
+      <div class="power">
+        <span id="powerStatus" class="has-text-warning" v-show="city.powered">
+          <span>
+            MW
+          </span>
+          <span id="powerMeter" class="meter">
+            {{ approx(replicate(city.power)) }}
+          </span>
+        </span>
+      </div>
+    </div>
+    <div id="sideQueue">
+      <div id="buildQueue" class="bldQueue standardqueuestyle has-text-info" v-show="display" />
+      <div id="msgQueue" class="msgQueue vscroll has-text-info" aria-live="polite">
+        <div id="msgQueueHeader">
+          <h2 class="has-text-success">
+            {{ label('message_log') }}
+          </h2>
+          <span class="special" role="button" title="message queue options" @click="trigModal">
+            <svg version="1.1" x="0px" y="0px" width="12px" height="12px" viewbox="340 140 280 279.416" enable-background="new 340 140 280 279.416" xml:space="preserve">
+              <path class="gear" d="M620,305.666v-51.333l-31.5-5.25c-2.333-8.75-5.833-16.917-9.917-23.917L597.25,199.5l-36.167-36.75l-26.25,18.083
+                            c-7.583-4.083-15.75-7.583-23.916-9.917L505.667,140h-51.334l-5.25,31.5c-8.75,2.333-16.333,5.833-23.916,9.916L399.5,163.333
+                            L362.75,199.5l18.667,25.666c-4.083,7.584-7.583,15.75-9.917,24.5l-31.5,4.667v51.333l31.5,5.25
+                            c2.333,8.75,5.833,16.334,9.917,23.917l-18.667,26.25l36.167,36.167l26.25-18.667c7.583,4.083,15.75,7.583,24.5,9.917l5.25,30.916
+                            h51.333l5.25-31.5c8.167-2.333,16.333-5.833,23.917-9.916l26.25,18.666l36.166-36.166l-18.666-26.25
+                            c4.083-7.584,7.583-15.167,9.916-23.917L620,305.666z M480,333.666c-29.75,0-53.667-23.916-53.667-53.666s24.5-53.667,53.667-53.667
+                            S533.667,250.25,533.667,280S509.75,333.666,480,333.666z" />
+            </svg>
+          </span>
+          <span role="button" class="zero has-text-advanced" @click="clearLog(m.view)">
+            {{ label('message_log_clear') }}
+          </span>
+          <span role="button" class="zero has-text-advanced" @click="clearLog()">
+            {{ label('message_log_clear_all') }}
+          </span>
+        </div>
+        <h2 class="is-sr-only">
+          {{ label('message_filters') }}
+        </h2>
+        <div id="msgQueueFilters" class="hscroll msgQueueFilters" />
+        <h2 class="is-sr-only">
+          {{ label('messages') }}
+        </h2>
+        <div id="msgQueueLog" aria-live="polite" />
+      </div>
+    </div>
+    <div id="resources" class="resources vscroll">
+      <h2 class="is-sr-only">
+        {{ label('tab_resources') }}
+      </h2>
+    </div>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 841 -->
+<span id="msgQueueFilter-{{ filter }}" class="{{ filter === 'all' ? 'is-active' : '' }}" aria-disabled="{{ filter === 'all' ? 'true' : 'false' }}" @click="swapFilter('{{ filter }}')" v-show="s.{{ filter }}.vis" role="button">
+  {{ loc('message_log_' + filter) }}
+</span>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 860 -->
+">
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 881 -->
+<div id="modalBox" class="modalBox" />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 889 -->
+<p id="modalBoxTitle" class="has-text-warning modalTitle">
+  {{ label('message_log') }}{{ egg16.length > 0 ? egg16 : '' }}
+</p>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 891 -->
+<div id="specialModal" class="modalBody vscroll" />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 894 -->
+<div>
+  <div>
+    <span class="has-text-warning">
+      {{ label('message_log_settings_visible') }}
+    </span>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 901 -->
+<hr>
+  <div>
+    <div>
+      <span class="has-text-warning">
+        {{ label('message_log_settings_length') }}
+      </span>
+    </div>
+  </div>
+</hr>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 909 -->
+<hr>
+  <div>
+    <div>
+      <span class="has-text-warning">
+        {{ label('message_log_settings_save') }}
+      </span>
+    </div>
+  </div>
+</hr>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 928 -->
+<div class="msgInput" v-show="s.{{ filter }}.unlocked">
+  <span>
+    {{ loc('message_log_' + filter) }}
+  </span>
+  <b-checkbox class="patrol" v-model="s.{{ filter }}.vis" :disabled="checkDisabled('{{ filter }}',s.{{ filter }}.vis)" :input="check('{{ filter }}')" />
+</div>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 929 -->
+<div class="msgInput" v-show="s.{{ filter }}.unlocked">
+  <span>
+    {{ loc('message_log_' + filter) }}
+  </span>
+  <b-numberinput :input="maxVal('{{ filter }}')" min="1" v-model="mi.{{ filter }}" :controls="false" />
+</div>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 930 -->
+<div class="msgInput" v-show="s.{{ filter }}.unlocked">
+  <span>
+    {{ loc('message_log_' + filter) }}
+  </span>
+  <b-numberinput :input="saveVal('{{ filter }}')" min="0" :max="s.{{ filter }}.max" v-model="si.{{ filter }}" :controls="false" />
+</div>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 938 -->
+<div class="msgInputApply">
+  <button class="button" @click="applyMax()">
+    {{ label('message_log_settings_apply') }}
+  </button>
+</div>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 943 -->
+<div class="msgInputApply">
+  <button class="button" @click="applySave()">
+    {{ label('message_log_settings_apply') }}
+  </button>
+</div>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 970 -->
+">
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1032 -->
+<div id="mainColumn" class="column is-three-quarters" />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1034 -->
+<div class="content" />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1037 -->
+<h2 class="is-sr-only">
+  Tab Navigation
+</h2>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1038 -->
+<b-tabs id="mainTabs" v-model="s.civTabs" :animated="s.animated" @update:model-value="swapTab($event)" />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1042 -->
+<b-tab-item class="tab-item sticky" :visible="s.showEvolve" :label="label('tab_evolve')">
+  <div id="evolution" />
+</b-tab-item>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1048 -->
+<b-tab-item :visible="s.showCiv" :label="label('tab_civil')">
+  <div id="mTabCivil" />
+</b-tab-item>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1054 -->
+<b-tab-item :visible="s.showCivic" :label="label('tab_civics')">
+  <div id="mTabCivic" />
+</b-tab-item>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1060 -->
+<b-tab-item :visible="s.showResearch" :label="label('tab_research')">
+  <div id="mTabResearch" />
+</b-tab-item>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1066 -->
+<b-tab-item :visible="s.showResources" :label="label('tab_resources')">
+  <div id="mTabResource" />
+</b-tab-item>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1072 -->
+<b-tab-item :visible="s.showGenetics" :label="label('tech_arpa')">
+  <div id="mTabArpa" />
+</b-tab-item>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1078 -->
+<b-tab-item :visible="s.showAchieve" :label="label('tab_stats')">
+  <div id="mTabStats" />
+</b-tab-item>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1094 -->
+<settings-tab />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1099 -->
+<b-tab-item disabled>
+  <template slot="header" />
+  <div id="mTabObserve" />
+</b-tab-item>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1106 -->
+<div id="queueColumn" class="queueCol column" />
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1112 -->
+<div id="mobileNav">
+  <button class="mobile-nav-btn is-active" data-panel="resources">
+    {{ label('tab_resources') }}
+  </button>
+  <button class="mobile-nav-btn" data-panel="game">
+    Game
+  </button>
+  <button class="mobile-nav-btn" data-panel="queue">
+    Queue
+  </button>
+</div>
+
+<!-- ───────────────────────────────────────── -->
+
+<!-- Line Num: 1150 -->
+<div class="promoBar">
+  <span class="left">
+    <h1>
+      <span class="has-text-warning">
+        {{ egg15.length > 0 ? `Ev${egg15 }}lve` : `Evolve`}
+      </span>
+      by
+      <span class="has-text-success">
+        Demagorddon
+      </span>
+    </h1>
+  </span>
+  <span class="right">
+    <h2 class="is-sr-only">
+      External Links
+    </h2>
+    <ul class="external-links">
+      <li>
+        <a href="wiki.html" target="_blank">
+          Wiki
+        </a>
+      </li>
+      <li>
+        <a href="https://www.reddit.com/r/EvolveIdle/" target="_blank">
+          Reddit
+        </a>
+      </li>
+      <li>
+        <a href="https://discord.gg/dcwdQEr" target="_blank">
+          Discord
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/pmotschmann/Evolve" target="_blank">
+          GitHub
+        </a>
+      </li>
+      <li>
+        <a href="https://www.patreon.com/demagorddon" target="_blank">
+          Patreon
+        </a>
+      </li>
+      <li>
+        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=PTRJZBW9J662C¤cy_code=USD&source=url" target="_blank">
+          Donate
+        </a>
+      </li>
+    </ul>
+  </span>
+</div>

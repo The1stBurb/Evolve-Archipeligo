@@ -1,1 +1,1 @@
-dat=['<div>${loc(`sign_description`,[loc(`sign_${sign}`),loc(`sign_${sign}_desc`)])}</div>', '<div>${astroEffect(sign)}</div>']
+dat=[['<div>${loc(`sign_description`,[loc(`sign_${sign}`),loc(`sign_${sign}_desc`)])}</div>', 383], ['<div>${astroEffect(sign)}</div>', 384]]

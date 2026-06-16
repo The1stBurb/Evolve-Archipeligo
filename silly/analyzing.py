@@ -60,7 +60,31 @@ def node_to_bit(node):
     return BIT(node.tag, node.attrs, children)
 
 
+def resolve_dynamic(html):
+    """Convert JS template expression syntax to Vue template syntax.
+
+    ${loc('key')} → {{ label('key') }}
+    ${any_expr}   → {{ any_expr }}
+    """
+    # Named loc() calls first (more specific pattern)
+    html = re.sub(r"\$\{loc\(['\"]([^'\"]+)['\"]\)\}", r"{{ label('\1') }}", html)
+    # Generic fallback for any remaining ${expr}
+    html = re.sub(r'\$\{([^}]+)\}', r'{{ \1 }}', html)
+    return html
+
+
+def normalize_vue_slots(html):
+    """Normalize Vue 3 slot shorthand so html.parser can handle it.
+
+    <template #trigger> → <template v-slot:trigger>
+    The emitter in emit_vue.py converts v-slot:name back to #name on output.
+    """
+    return re.sub(r'<(template)\s+#(\w+)', r'<\1 v-slot:\2', html)
+
+
 def html_to_bit(html):
+    html = normalize_vue_slots(html)
+    html = resolve_dynamic(html)
     parser = HTMLToTree()
     parser.feed(html)
 
@@ -81,7 +105,7 @@ class BIT:
         self.nm=name
         self.specs=specs
         self.kids=kids
-    def __str__(self):return f"<{self.nm} | {' '.join(str(i)+"="+str(self.specs[i]) for i in self.specs)}>{self.kids}</{self.nm}>"
+    def __str__(self):return f"<{self.nm} | {' '.join(str(i)+'='+str(self.specs[i]) for i in self.specs)}>{self.kids}</{self.nm}>"
     def __repr__(self):return f"BIT('{self.nm}',{self.specs},{self.kids})"#self.__str__()
 broke=[]
 splits=[]
