@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Evolve Save String</title>
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+    <link rel="icon" href="evolved.ico" type="images/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+    <link rel="stylesheet" type="text/css" href="evolve/evolve.css">
+    <script src="https://unpkg.com/jquery@3.6.3/dist/jquery.min.js" integrity="sha384-Ft/vb48LwsAEtgltj7o+6vtS2esTU9PCpDqcXs4OCVQFZu5BqprHtUCZ4kjK+bpE" crossorigin="anonymous"></script>
+    <!-- <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js" integrity="sha384-05dHfbm/L0COkFLQ5ghEDllrtj0kD1/46h3bAPxuPjWq9/IDglEo6RtZefYkYfpk" crossorigin="anonymous"></script> -->
+    <script src="https://unpkg.com/js-yaml@4.1.0/dist/js-yaml.min.js" crossorigin="anonymous"></script>
+    <script src="lib/lz-string.min.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="eepy"></div>
+<script>
+    // try{
+        var save = window.localStorage;
+        // save.removeItem("evolved")
+        let global={}
+        let global_data = save.getItem('evolved') || false;
+        if (global_data) {
+            // Load pre-existing game data
+            let saveState = JSON.parse(LZString.decompressFromUTF16(global_data));
+
+            if (saveState){
+                global = saveState;
+                // throw new Error("worked")
+            }
+        }
+        else{
+            console.log(Object.keys(save))
+            // throw new Error("workednot "+Object.keys(save))
+        }
+        const atomic_mass = {
+            Food: 4.355,
+            Lumber: 7.668,
+            Chrysotile: 15.395,
+            Stone: 20.017,
+            Crystal: 5.062,
+            Furs: 13.009,
+            Copper: 63.546,
+            Iron: 55.845,
+            Aluminium: 26.9815,
+            Cement: 20.009,
+            Coal: 12.0107,
+            Oil: 5.342,
+            Uranium: 238.0289,
+            Steel: 55.9,
+            Titanium: 47.867,
+            Alloy: 45.264,
+            Polymer: 120.054,
+            Iridium: 192.217,
+            Helium_3: 3.0026,
+            Deuterium: 2.014,
+            Neutronium: 248.74,
+            Adamantite: 178.803,
+            Infernite: 222.666,
+            Elerium: 297.115,
+            Nano_Tube: 15.083,
+            Graphene: 26.9615,
+            Stanene: 33.9615,
+            Bolognium: 75.898,
+            Unobtainium: 168.59,
+            Vitreloy: 41.08,
+            Orichalcum: 237.8,
+            Asphodel_Powder: 0.01,
+            Elysanite: 13.666,
+            Water: 18.01,
+            Plywood: 7.666,
+            Brick: 20.009,
+            Wrought_Iron: 55.845,
+            Sheet_Metal: 26.9815,
+            Mythril: 94.239,
+            Aerogel: 7.84,
+            Nanoweave: 23.71,
+            Scarletite: 188.6,
+            Quantium: 241.35
+        };
+        let md=document.getElementById("eepy")
+        let nhtml=""
+        // let maxa=["",0]
+        let amnts=[]
+        let specs=[]
+        for(let i in atomic_mass){
+            console.log(i,global.resource.hasOwnProperty(i))
+            let mass=atomic_mass[i]
+            let prod=Math.floor(global.resource[i].diff)
+            if(prod==0)continue
+            let amnt=mass*prod;
+            // if(amnt>max[1])max=i,amnt
+            if(["Infernite","Elerium"].includes(i)){specs.push([i,amnt,prod])}else{amnts.push([i,amnt,prod])}
+            nhtml+=`<div id="res_${i}"><span id="${i}_name"><b>${i}: </b> <span id="${i}_mass">${mass}</span> kt/unit * <span id="${i}_prod">${prod}</span> unit/s =<span id="${i}_math">${(amnt>0?amnt:0).toFixed(2).toLocaleString()}</span> kt/s</span></div>`
+        }
+        nhtml+="<hr><div>"
+        amnts.sort((a, b) => b[1] - a[1]);
+        specs.sort((a, b) => b[1] - a[1]);
+        
+        amnts=[...specs,...amnts].filter(a=>a[1]>0)
+        for(let ai in amnts){
+            let i=amnts[ai]
+            if(ai<5){
+                i[0]=`<b>${i[0]}</b>`
+            }
+            nhtml+=`<span>${i[0]} at ${i[2]} units for ${i[1].toFixed(2).toLocaleString()} kt/s</span><br>`
+        }
+        md.innerHTML=nhtml+"</div>"
+    // }
+    // catch(e){
+    //     document.getElementById("eepy").innerHTML="<span>"+e+"</span>"
+    // }
+</script>
+</body>
+</html>

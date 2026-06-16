@@ -1,0 +1,232 @@
+{
+  "loc_id": {
+    "bolognium_alloy_beams": 0,
+    "fertility_clinic": 1,
+    "psychic_efficiency": 2,
+    "stellar_forge": 3,
+    "stellar_smelting": 4,
+    "high_tech_factories": 5,
+    "bolognium_vaults": 6,
+    "bolognium_crates": 7,
+    "bolognium_containers": 8,
+    "nanoweave_containers": 9,
+    "foreign_investment": 10,
+    "xeno_tourism": 11,
+    "expedition": 12,
+    "subspace_sensors": 13,
+    "alien_database": 14,
+    "orichalcum_capacitor": 15,
+    "metaphysics": 16,
+    "orichalcum_analysis": 17,
+    "study_corrupt_gem": 18,
+    "soul_binding": 19,
+    "soul_capacitor": 20,
+    "absorption_chamber": 21,
+    "incorporeal": 22,
+    "tech_ascension": 23,
+    "terraforming": 24,
+    "graphene_processing": 25,
+    "orichalcum_driver": 26,
+    "nanoweave": 27,
+    "gauss_rifles": 28,
+    "hammocks": 29,
+    "nanoweave_vest": 30,
+    "hydroponics": 31,
+    "orichalcum_panels": 32,
+    "dyson_sphere2": 33,
+    "orichalcum_sphere": 34,
+    "mega_manufacturing": 35,
+    "luxury_condo": 36,
+    "asteroid_redirect": 37,
+    "wormholes": 38,
+    "advanced_predators": 39,
+    "shield_generator": 40,
+    "enhanced_sensors": 41,
+    "xeno_linguistics": 42,
+    "xeno_culture": 43,
+    "cultural_exchange": 44,
+    "shore_leave": 45,
+    "xeno_gift": 46,
+    "industrial_partnership": 47,
+    "embassy_housing": 48,
+    "advanced_telemetry": 49,
+    "defense_platform": 50,
+    "scout_ship": 51,
+    "corvette_ship": 52,
+    "frigate_ship": 53,
+    "cruiser_ship": 54,
+    "dreadnought": 55,
+    "ship_dock": 56,
+    "ore_processor": 57,
+    "scavenger": 58,
+    "coordinates": 59,
+    "chthonian_survey": 60,
+    "gateway_depot": 61,
+    "soul_forge": 62,
+    "soul_attractor": 63,
+    "soul_absorption": 64,
+    "soul_link": 65,
+    "gun_emplacement": 66,
+    "advanced_emplacement": 67,
+    "transmutation": 68,
+    "improved_concealment": 69,
+    "predictive_arrests": 70
+  },
+  "loc_specials": {
+    "bolognium_alloy_beams": [
+      "housing_reduction:3",
+      "gateway:3"
+    ],
+    "fertility_clinic": [
+      "reproduction:1"
+    ],
+    "psychic_efficiency": [
+      "psychic:4"
+    ],
+    "stellar_forge": [
+      "foundry:8",
+      "high_tech:15",
+      "gateway:3",
+      "neutron:1"
+    ],
+    "high_tech_factories": [
+      "factory:3"
+    ],
+    "bolognium_vaults": [
+      "gambling:5",
+      "gateway:3"
+    ],
+    "bolognium_crates": [
+      "container:7",
+      "gateway:3"
+    ],
+    "bolognium_containers": [
+      "steel_container:6",
+      "gateway:3"
+    ],
+    "foreign_investment": [
+      "banking:12"
+    ],
+    "xeno_tourism": [
+      "monument:2",
+      "monuments:10"
+    ],
+    "expedition": [
+      "science:15"
+    ],
+    "alien_database": [
+      "conflict:5"
+    ],
+    "metaphysics": [
+      "high_tech:15",
+      "xeno:5"
+    ],
+    "study_corrupt_gem": [
+      "corrupt:1"
+    ],
+    "graphene_processing": [
+      "ai_core:2"
+    ],
+    "orichalcum_driver": [
+      "mass:1"
+    ],
+    "gauss_rifles": [
+      "military:9"
+    ],
+    "hammocks": [
+      "marines:1"
+    ],
+    "nanoweave_vest": [
+      "armor:3"
+    ],
+    "hydroponics": [
+      "mars:5",
+      "gateway:3"
+    ],
+    "orichalcum_panels": [
+      "swarm:5"
+    ],
+    "dyson_sphere2": [
+      "proxima:3",
+      "piracy:1"
+    ],
+    "mega_manufacturing": [
+      "alpha:3"
+    ],
+    "asteroid_redirect": [
+      "blackhole:5",
+      "gateway:3"
+    ],
+    "wormholes": [
+      "gravity:1",
+      "science:15"
+    ],
+    "advanced_predators": [
+      "portal:6"
+    ],
+    "shield_generator": [
+      "high_tech:14",
+      "gateway:3",
+      "infernite:4"
+    ],
+    "xeno_linguistics": [
+      "xeno:1"
+    ],
+    "xeno_culture": [
+      "xeno:3"
+    ],
+    "cultural_exchange": [
+      "xeno:5"
+    ],
+    "industrial_partnership": [
+      "xeno:9"
+    ],
+    "advanced_telemetry": [
+      "xeno:5"
+    ],
+    "defense_platform": [
+      "stargate:5",
+      "piracy:1"
+    ],
+    "scout_ship": [
+      "gateway:3"
+    ],
+    "corvette_ship": [
+      "xeno:1"
+    ],
+    "ship_dock": [
+      "gateway:3"
+    ],
+    "ore_processor": [
+      "conflict:2"
+    ],
+    "coordinates": [
+      "conflict:5"
+    ],
+    "chthonian_survey": [
+      "chthonian:2"
+    ],
+    "soul_forge": [
+      "hell_pit:3"
+    ],
+    "transmutation": [
+      "alchemy:1"
+    ],
+    "improved_concealment": [
+      "roguemagic:7"
+    ],
+    "predictive_arrests": [
+      "evil:4"
+    ]
+  },
+  "specGenus": [],
+  "item_reqs": {},
+  "cond_items": {
+    "psychic_efficiency": {
+      "include": [
+        "eldritch"
+      ],
+      "exclude": []
+    }
+  }
+}

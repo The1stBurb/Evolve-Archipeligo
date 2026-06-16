@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Evolve</title>
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="evolved-light.ico" type="images/x-icon" media="(prefers-color-scheme:dark)">
+    <link rel="icon" href="evolved.ico" type="images/x-icon" media="(prefers-color-scheme:light)">
+    <link rel="icon" href="evolved.ico" type="images/x-icon" media="(prefers-color-scheme:no-preference)">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+    <link rel="stylesheet" href="lib/buefy.min.0.9.22.css">
+    <link rel="stylesheet" type="text/css" href="lib/weather-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="evolve/evolve.css">
+    <script src="https://unpkg.com/jquery@3.6.3/dist/jquery.min.js" integrity="sha384-Ft/vb48LwsAEtgltj7o+6vtS2esTU9PCpDqcXs4OCVQFZu5BqprHtUCZ4kjK+bpE" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js" integrity="sha384-05dHfbm/L0COkFLQ5ghEDllrtj0kD1/46h3bAPxuPjWq9/IDglEo6RtZefYkYfpk" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/buefy@0.9.22/dist/buefy.min.js" integrity="sha384-SsYfCnxxJJlTFm+xZU2q9KLeF0LureHv8EYGBhKyFNiAGP5ufOhhryh1fKVdq6N7" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sortablejs@1.10.2/Sortable.min.js" integrity="sha384-6qM1TfKo1alBw3Uw9AWXnaY5h0G3ScEjxtUm4TwRJm7HRmDX8UfiDleTAEEg5vIe" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/chart.js@3.8.2/dist/chart.min.js" integrity="sha384-z7c1KnSCkMpfoib43Lq1v2pokQC8cdqBWmH2qiyH2KkmNv60hACtZUjoCEkp1Y08" crossorigin="anonymous"></script>
+    <script src="lib/lz-string.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.45/dist/katex.min.css" integrity="sha384-UA8juhPf75SzzAMA/4fo3yOU7sBJ0om7SCD2GHq0fZqZco6tr1UCV7nUbk9J90JM" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.45/dist/katex.min.js" integrity="sha384-Tt7wBxLKwSzFVRET4O4U9H6v8MNaQ/CjN2FMP4xFm0ErrFu6aNqoonRVW5W40iGI" crossorigin="anonymous"></script>
+
+    <!-- <script src="src/var.js" type="module"></script> -->
+</head>
+<body>
+    <style>
+        .loading {
+            text-align: center;
+            margin-top: 10rem;
+        }
+        .lds-dual-ring {
+            display: inline-block;
+            width: 64px;
+            height: 64px;
+        }
+        .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 5rem;
+            height: 5rem;
+            margin: 1px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            border-color: #fff transparent #fff transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+            }
+            @keyframes lds-dual-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CPC46V71CB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CPC46V71CB');
+    </script>
+
+
+    <form id="mathChunk" oninput="createForm(mathChunkSelect.value)">
+        <label for="mathChunkSelect">Which Maths do you wish for?</label>
+        <select id="mathChunkSelect" name="mathChunkSelect">
+            <option value="none">None</option>
+        </select>
+    </form>
+    
+    <form id="mathCalc" oninput=""></form>
+    <!-- <form id="mathCalc"></form> -->
+    <div id="asdfg"></div>
+
+    <script>
+        function wordsToUpper(text){
+            return text.replaceAll(/\b\w/g, c => c.toUpperCase());
+        }
+        function getId(id){return document.getElementById(id)}
+        let excludes=["let","Math","floor"]
+        class MATHCHUNK{
+            constructor(name,vars,formulas,maths){
+                this.name=name
+                this.vars=vars
+                // let matchs=[]
+                let nforms=[]
+                this.vars.forEach(elm=>{
+                    nforms.push(`let ${elm.inpname}=${elm.name}.value;`)
+                })
+                this.maths=maths
+                // let rep=new RegExp(`(${incs.join("|")})`,"g")
+                // console.log(formulas)
+                this.formulas=[nforms.join(""),formulas]//.map(elm=>elm.replaceAll(rep,'parseInt($1.value)').replace("output","output.value"))
+                // console.log(this.formulas)
+            }
+            build(){
+                return this.vars.map(elm=>elm.build()).join("")
+            }
+        }
+        class RANGE{
+            constructor(name,min,max){
+                // console.log(name)
+                this.name=name
+                this.inpname=name
+                this.min=min
+                this.max=max
+                this.visName=wordsToUpper(name.replaceAll("_"," "))
+            }
+            build(){
+                return `<label for="${this.name}">${this.visName} (${this.min}-${this.max}):</label><br>
+                    <input type="number" id="${this.name}" name="${this.name}" value="${this.min}" min="${this.min}" max="${this.max}"><br>`//<output for="${this.name}" id="${this.name}_value">${this.min}</output><br>`
+            }
+        }
+        class MATHS{
+            constructor(args){
+                this.args=args.replaceAll("(","\\left(").replaceAll(")","\\right)").replaceAll(" ","\\ ").replaceAll("\n","\\\\").replaceAll(/(\\ )+/g,"\\ ")
+                console.log(this.args)
+            }
+            build(){
+                katex.render(this.args,getId("katexHere"),{})
+            }
+        }
+        function Range(name,min,max){
+            return new RANGE(name,min,max)
+        }
+        function MathChunk(name,vars,formulas,maths){
+            return new MATHCHUNK(name,vars,formulas,maths)
+        }
+        function Maths(args){
+            return new MATHS(args)
+        }
+        let chunks=[
+            MathChunk("Soul Gem Chance",[
+                Range("demons_killed",0,1000),
+                Range("fortress_threat",0,1000),
+                Range("attractor_beacon_count",0,100),
+                Range("patrol_size",1,100),
+                Range("patrols",1,100),//CHANGE demons_killed to be the based on the patrol size
+            ],function(e,get){
+                // if(!get){
+                //     e = Object.fromEntries(new FormData(getId("mathCalc")));
+                //     for(let i in e){
+                //         e[i]=parseInt(e[i])
+                //     }
+                // }
+                let div=35-Math.floor(e.attractor_beacon_count/3);
+                // let iter2=0
+                e.demons_killed=(22*e.patrol_size)
+                function max_threat(i,val){
+                    // iter=iter??0
+                    // iter2++
+                    // console.log(i,i-1,iter,iter2)
+                    if(typeof i!="number")return 0
+                    if(i<=1){
+                        return Math.floor(e.fortress_threat/val)
+                    }
+                    else{
+                        let mt=max_threat(i-1,val)
+                        return mt+Math.floor((e.fortress_threat-mt)/val);
+                    }
+                    // return i<=1?:
+                }
+                let chancesWithoutKilledCount=(val)=>Math.round(max_threat(e.patrols,val)/div);
+                let chances=(val)=>{
+                    let c=chancesWithoutKilledCount(val)
+                    // console.log(e.demons_killed,c)
+                    return e.demons_killed>c?c:e.demons_killed
+                }
+                let gemChance=Math.round(10000*(0.948**e.attractor_beacon_count))
+                gemChance=gemChance<12?12:gemChance
+                let gemChances=(val)=>(1-(gemChance/(1+gemChance))**(chances(val)*e.patrols))/e.patrols
+                // let gemChanceRange=[,1-(gemChance/(1+gemChance))**(chances(50)*e.patrols)]
+                return `Chance of getting a Soul Gem per Day: ${(gemChances(50)*100).toFixed(2)}% - ${(gemChances(10)*100).toFixed(2)}%\nEstimated Days for 1 Soul Gem: ${(1/gemChances(10)).toFixed(0)} - ${(1/gemChances(50)).toFixed(0)} days`
+            },
+            Maths(String.raw`\gdef\demonsKilled{\left[armyRating(Patrol Size)\right]}\gdef\threatPatrols{\frac{threat_{Patrols}}{div}}
+            threat_{n} = n > 1 ? \left\lfloor \frac{Fortress Threat - threat_{n - 1}}{\left[10, 50\right]}\right\rfloor : \left\lfloor \frac{Fortress Threat}{\left[10, 50\right]} \right\rfloor
+            Demons Killed = \demonsKilled < \threatPatrols ? \demonsKilled : \threatPatrols
+            \frac{1-(\frac{gemChance}{1 + gemChance})^{Demons Killed * Patrols}}{Patrols} = Gem Chance Per Day`),
+            ),
+            MathChunk("Army Rating",[
+                Range("weapon_rating",1,10),
+                Range("patrol_size",0,100),
+                Range("tactical_gene_level",0,100),
+                Range("temple_count",0,200),
+            ],function(e){
+                let army=e.patrol_size*e.weapon_rating*(1+e.tactical_gene_level/20)*(1+e.temple_count*0.01)
+                return `Army Rating: ${army}`
+            },
+            Maths(String.raw`
+            Army = Patrol Size * weaponTechModifier() * (1 + \frac{Tactical Gene Level}{20}) * (1 + Fanaticism Chosen ? Temple Count * 0.01 : 0) * (1 + \frac{\left[1, 1.25, 1.4, 1.5\right]\left[ Rage Gene Level \right] * Wounded}{100}) * (1 - \frac{\left[10, 6, 4, 3\right]\left[ Puny Gene Level \right]}{100}) * (1 + \frac{\left[25, 32, 35, 38\right]\left[ Claws Gene Level \right]}{100}) * (1 + \frac{\left[20, 25, 30, 35\right]\left[ Chameleon Gene Level \right]}{100}) * (1 + \frac{\left[30, 40, 45, 50\right]\left[ Apex Predator Gene Level \right]}{100}) * (1 + \frac{\left[75, 85, 90, 92\right]\left[ Swift Gene Level \right]}{100}) * (1 + \frac{\left[12, 15, 18, 21\right]\left[ Iron Wood Gene Level \right]}{100}) * (1 + \frac{\left[65, 70, 72, 74\right]\left[ Fiery Gene Level \right]}{100}) * (1 + \frac{\left[20, 25, 30, 35\right]\left[ Sticky Gene Level \right]}{100}) * (1 - \frac{\left[25, 20, 15, 12\right]\left[ Pathetic Gene Level \right]}{100}) * (1 + \frac{\left[50, 60, 65, 70\right]\left[ Holy Gene Level \right]}{100}) * (1 + \frac{\left[6, 8, 10, 12\right]\left[ Elemental Gene Level \right]}{100}) * (1 + \frac{50 * \left[75, 100, 125, 150\right]\left[ Ocular Power Gene Level \right]}{100}) * (1 + \frac{\left[20, 24, 28, 32\right]\left[ Tusk Gene Level \right]}{200}) * (1 + \frac{\left[150, 175, 200, 225\right]\left[ Grenadier Gene Level \right]}{250})
+            Army = \left\lfloor Army \right\rfloor `),
+            ),
+        ]
+
+        let lastForm="None"
+        function createForm(name){
+            lastForm=name;
+            // console.log(name)
+            for(let i in chunks){
+                if(chunks[i].name==name){
+                    let elm=$(`#mathCalc`)
+                    elm.empty()
+                    let formulas=chunks[i].formulas
+                    elm.append(`<input type="hidden" id="name" for="name" value="${chunks[i].name}"><fieldset><legend>${chunks[i].name}</legend>${chunks[i].build()}</fieldset><span> </span><br><output id="output" name="output">jasf</output><br><div id="katexHere" style="width:100%;"></div><br><button type="submit">Calculate</button><button type="reset">Reset</button>`)//${formulas[1].toString().replaceAll(/(\{|\}|\;)/g,"$1<br>")}
+                    // console.log(getId("mathCalc"),getId("mathChunk"))
+                    let nforms=""//chunks[i].vars.map(elm=>`${elm.name}_value.value=${elm.name}.value`).join(";")
+                    // console.log(nforms.replaceAll(";",";\n"))
+                    // console.log
+                    // getId("mathCalc").oninput=formulas[1]//new Function(nforms)
+                    let data={}
+                    for(let j in chunks[i].vars){
+                        data[chunks[i].vars[j].name]=chunks[i].vars[j].min
+                    }
+                    getId("output").value=chunks[i].formulas[1](data)
+                    chunks[i].maths.build()
+                    // function(e){
+                    //     for(let i in formulas){
+                    //         formulas[i](e)
+                    //     }
+                    // }
+                    // addEventListener()
+                    return
+                }
+            }
+        }
+
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let opts=[]
+            for(let i in chunks){
+                let chunk=chunks[i]
+                opts.push(chunk.name)
+            }
+            let ntext=opts.map(elm=>`<option value="${elm}">${wordsToUpper(elm)}</option>`).join()
+            // getId(`#mathChunkSelect`).innerHTML=ntext
+            // console.log(ntext)
+            $(`#mathChunkSelect`).append(ntext)
+            createForm(chunks[0].name)
+            // $(`#mathCalc`).append(`<label for="${}"></label><br><select ></select>`)
+        })
+
+        let form = document.getElementById("mathCalc");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            let data = Object.fromEntries(new FormData(form));
+            for(let i in data){
+                data[i]=parseInt(data[i])
+            }
+            // console.log("submit",data,lastForm)
+            for(let i in chunks){
+                // console.log(chunks[i].name,lastForm)
+                if(chunks[i].name==lastForm){
+                    // console.log(chunks[i].formulas[1](data))
+                    getId("output").value=chunks[i].formulas[1](data,1)
+                    // console.log(getId("output"))
+                    break
+                }
+            }
+        });
+        form.addEventListener("reset", function(event) {
+            event.preventDefault();
+            // console.log("reset")
+            createForm(lastForm)
+        });
+    </script>
+</body>
+</html>

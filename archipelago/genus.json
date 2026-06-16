@@ -1,0 +1,320 @@
+{
+  "protoplasm":{},
+  "human": {
+    "creative": 1,
+    "diverse": 1,
+    "adaptable": 1,
+    "wasteful": 1
+  },
+  "elven": {
+    "studious": 1,
+    "arrogant": 1,
+    "adaptable": 1,
+    "wasteful": 1
+  },
+  "orc": {
+    "brute": 1,
+    "angry": 1,
+    "adaptable": 1,
+    "wasteful": 1
+  },
+  "cath": {
+    "lazy": 1,
+    "curious": 1,
+    "carnivore": 1,
+    "beast": 1,
+    "cautious": 1
+  },
+  "wolven": {
+    "pack_mentality": 1,
+    "tracker": 1,
+    "carnivore": 1,
+    "beast": 1,
+    "cautious": 1
+  },
+  "vulpine": {
+    "playful": 1,
+    "freespirit": 1,
+    "carnivore": 1,
+    "beast": 1,
+    "cautious": 1
+  },
+  "centaur": {
+    "sniper": 1,
+    "hooved": 1,
+    "herbivore": 1,
+    "instinct": 1
+  },
+  "rhinotaur": {
+    "rage": 1,
+    "heavy": 1,
+    "herbivore": 1,
+    "instinct": 1
+  },
+  "capybara": {
+    "gnawer": 1,
+    "calm": 1,
+    "herbivore": 1,
+    "instinct": 1
+  },
+  "kobold": {
+    "pack_rat": 1,
+    "paranoid": 1,
+    "small": 1,
+    "weak": 1
+  },
+  "goblin": {
+    "greedy": 1,
+    "merchant": 1,
+    "small": 1,
+    "weak": 1
+  },
+  "gnome": {
+    "smart": 1,
+    "puny": 1,
+    "small": 1,
+    "weak": 1
+  },
+  "ogre": {
+    "dumb": 1,
+    "tough": 1,
+    "large": 1,
+    "strong": 1
+  },
+  "cyclops": {
+    "nearsighted": 1,
+    "intelligent": 1,
+    "large": 1,
+    "strong": 1
+  },
+  "troll": {
+    "regenerative": 1,
+    "gluttony": 1,
+    "large": 1,
+    "strong": 1
+  },
+  "tortoisan": {
+    "slow": 1,
+    "armored": 1,
+    "cold_blooded": 1,
+    "scales": 1
+  },
+  "gecko": {
+    "optimistic": 1,
+    "chameleon": 1,
+    "cold_blooded": 1,
+    "scales": 1
+  },
+  "slitheryn": {
+    "astrologer": 1,
+    "hard_of_hearing": 1,
+    "slow_digestion": 1,
+    "cold_blooded": 1,
+    "scales": 1
+  },
+  "arraak": {
+    "resourceful": 1,
+    "selenophobia": 1,
+    "flier": 1,
+    "hollow_bones": 1,
+    "sky_lover": 1
+  },
+  "pterodacti": {
+    "leathery": 1,
+    "pessimistic": 1,
+    "flier": 1,
+    "hollow_bones": 1,
+    "sky_lover": 1
+  },
+  "dracnid": {
+    "hoarder": 1,
+    "solitary": 1,
+    "flier": 1,
+    "hollow_bones": 1,
+    "sky_lover": 1
+  },
+  "entish": {
+    "kindling_kindred": 1,
+    "pyrophobia": 1,
+    "catnip": 1,
+    "sappy": 1,
+    "asymmetrical": 1
+  },
+  "cacti": {
+    "hyper": 1,
+    "skittish": 1,
+    "sappy": 1,
+    "asymmetrical": 1
+  },
+  "pinguicula": {
+    "fragrant": 1,
+    "sticky": 1,
+    "anise": 1,
+    "sappy": 1,
+    "asymmetrical": 1
+  },
+  "sporgar": {
+    "infectious": 1,
+    "parasite": 1,
+    "detritivore": 1,
+    "spongy": 1
+  },
+  "shroomi": {
+    "toxic": 1,
+    "nyctophilia": 1,
+    "detritivore": 1,
+    "spongy": 1
+  },
+  "moldling": {
+    "infiltrator": 1,
+    "hibernator": 1,
+    "detritivore": 1,
+    "spongy": 1
+  },
+  "mantis": {
+    "cannibalize": 1,
+    "malnutrition": 1,
+    "high_pop": 1,
+    "fast_growth": 1,
+    "high_metabolism": 1
+  },
+  "scorpid": {
+    "claws": 1,
+    "atrophy": 1,
+    "high_pop": 1,
+    "fast_growth": 1,
+    "high_metabolism": 1
+  },
+  "antid": {
+    "hivemind": 1,
+    "tunneler": 1,
+    "high_pop": 1,
+    "fast_growth": 1,
+    "high_metabolism": 1
+  },
+  "sharkin": {
+    "blood_thirst": 1,
+    "apex_predator": 1,
+    "submerged": 1,
+    "low_light": 1
+  },
+  "octigoran": {
+    "invertebrate": 1,
+    "suction_grip": 1,
+    "submerged": 1,
+    "low_light": 1
+  },
+  "dryad": {
+    "befuddle": 1,
+    "environmentalist": 1,
+    "kindling_kindred": 1,
+    "elusive": 1,
+    "iron_allergy": 1
+  },
+  "satyr": {
+    "unorganized": 1,
+    "musical": 1,
+    "elusive": 1,
+    "iron_allergy": 1
+  },
+  "phoenix": {
+    "revive": 1,
+    "slow_regen": 1,
+    "smoldering": 1,
+    "cold_intolerance": 1
+  },
+  "salamander": {
+    "forge": 1,
+    "autoignition": 1,
+    "smoldering": 1,
+    "cold_intolerance": 1
+  },
+  "yeti": {
+    "blurry": 1,
+    "snowy": 1,
+    "chilled": 1,
+    "heat_intolerance": 1
+  },
+  "wendigo": {
+    "ravenous": 1,
+    "ghostly": 1,
+    "soul_eater": 1,
+    "chilled": 1,
+    "heat_intolerance": 1
+  },
+  "tuskin": {
+    "lawless": 1,
+    "mistrustful": 1,
+    "scavenger": 1,
+    "nomadic": 1
+  },
+  "kamel": {
+    "humpback": 1,
+    "unfavored": 1,
+    "scavenger": 1,
+    "nomadic": 1
+  },
+  "balorg": {
+    "fiery": 1,
+    "terrifying": 1,
+    "slaver": 1,
+    "immoral": 1,
+    "evil": 1,
+    "soul_eater": 1
+  },
+  "imp": {
+    "compact": 1,
+    "conniving": 1,
+    "pathetic": 1,
+    "immoral": 1,
+    "evil": 1,
+    "soul_eater": 1
+  },
+  "seraph": {
+    "unified": 1,
+    "spiritual": 1,
+    "truthful": 1,
+    "blissful": 1,
+    "pompous": 1,
+    "holy": 1
+  },
+  "unicorn": {
+    "rainbow": 1,
+    "magnificent": 1,
+    "noble": 1,
+    "blissful": 1,
+    "pompous": 1,
+    "holy": 1
+  },
+  "synth": {
+    "imitation": 1,
+    "emotionless": 1,
+    "logical": 1,
+    "artifical": 1,
+    "powered": 1
+  },
+  "nano": {
+    "deconstructor": 1,
+    "linked": 1,
+    "shapeshifter": 1,
+    "artifical": 1,
+    "powered": 1
+  },
+  "ghast": {
+    "dark_dweller": 1,
+    "swift": 1,
+    "anthropophagite": 1,
+    "psychic": 1,
+    "tormented": 1,
+    "darkness": 1,
+    "unfathomable": 1
+  },
+  "shoggoth": {
+    "living_tool": 1,
+    "bloated": 1,
+    "psychic": 1,
+    "tormented": 1,
+    "darkness": 1,
+    "unfathomable": 1
+  }
+}

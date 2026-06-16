@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Evolve Save String</title>
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+    <link rel="icon" href="evolved.ico" type="images/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+    <link rel="stylesheet" type="text/css" href="evolve/evolve.css">
+    <script src="https://unpkg.com/jquery@3.6.3/dist/jquery.min.js" integrity="sha384-Ft/vb48LwsAEtgltj7o+6vtS2esTU9PCpDqcXs4OCVQFZu5BqprHtUCZ4kjK+bpE" crossorigin="anonymous"></script>
+    <!-- <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js" integrity="sha384-05dHfbm/L0COkFLQ5ghEDllrtj0kD1/46h3bAPxuPjWq9/IDglEo6RtZefYkYfpk" crossorigin="anonymous"></script> -->
+    <script src="https://unpkg.com/js-yaml@4.1.0/dist/js-yaml.min.js" crossorigin="anonymous"></script>
+    <style>
+        
+    </style>
+    <!-- <script type="module">
+        function retInp(type,nm,lbl,ext){return {type:type,nm:nm,txt:lbl,ext:ext}}
+        let inps=[["Player Info",retInp("text","name","Name")],["Starting Values",retInp("number","plasmid","Plasmid Count (0-1000)",'min="0" max="1000"'),retInp("number","phage","Phage Count (0-500)",'min="0" max="500"'),retInp("number","antip","Anti-Plasmid Count (0-1000)",'min="0" max="1000"')],["Death Link",retInp("")]]
+        // document.addEventListener('DOMContentLoaded', (event) => {
+        let main=$(`#yamlform`);
+        for(var section in inps){
+            let s=inps[section]
+            let id=s[0].replace(" ","_")
+            main.append(`<fieldset id="${id}"><legend>${s[0]}</legend></fieldset><br>`)
+            let sub=$(`#${id}`)
+            // console.log(`#${s[0]}`,s.length,sub)
+            for(let j=1; j<s.length; j++){
+                let i=s[j];
+                console.log(j,i)
+                sub.append($(`<label for="${i.nm}">${i.txt}:</label></br>
+                <input type="${i.type}" id="${i.nm}" name="${i.nm}" ${i.ext?i.ext:""}><br>`))
+            }
+            // console.log(sub)
+            // main.append(sub)
+        }
+        main.append(`<button type="submit">Create File</button>`)
+        // })
+    </script> -->
+</head>
+<body>
+    <form id="yamlform" oninput="plasCount.value=plasmid.value;phaCount.value=phage.value;antipCount.value=antip.value;speedCount.value=speed.value;deathamnCount.value=deathamn.value;deathpercCount.value=deathperc.value;">
+        <fieldset>
+            <legend>Player Info:</legend>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+        </fieldset>
+        <fieldset>
+            <legend>Starting Values:</legend>
+            <input type="hidden" id="relig" name="relig" value="false">
+            <input type="hidden" id="govnr" name="govnr" value="false">
+            <label for="plasmid">Plasmids (0-1000):</label><br>
+            <input type="range" id="plasmid" name="plasmid" min="0" max="1000" value="0"><output name="plasCount" for="plasmid">0</output><br>
+            <label for="phage">Phage (0-1000):</label><br>
+            <input type="range" id="phage" name="phage" min="0" max="500" value="0"><output name="phaCount" for="phage">0</output><br>
+            <label for="antip">Anti-Plasmids (0-1000):</label><br>
+            <input type="range" id="antip" name="antip" min="0" max="1000" value="0"><output name="antipCount" for="antip">0</output><br><hr>
+            <label for="speed">2x Speed (0-8 hrs):</label><br>
+            <input type="range" id="speed" name="speed" min="0" max="8" value="0"><output name="speedCount" for="speed">0</output><br><hr>
+            <label for="relig">Religion Unlocked: </label><output name="religTF" for="relig" value="False">False</output><br>
+            <button type="button" id="religBtn" for="relig" onclick="religTF.value=religTF.value=='False'?'True':'False';relig.value=relig.value=='false'?'true':'false';">Toggle Religion Unlocked</button><br>
+            <label for="govnr">Governors Unlocked: </label><output name="govnrTF" for="govnr" value="False">False</output><br>
+            <button type="button" id="govnrBtn" for="govnr" onclick="govnrTF.value=govnrTF.value=='False'?'True':'False';govnr.value=govnr.value=='false'?'true':'false';">Toggle Governors Unlocked</button><br><hr>
+            <label for="univ">Universe:</label>
+            <select id="univ" name="univ">
+                <option value="standard">Standard</option>
+                <option value="heavy_gravity">Heavy Gravity</option>
+                <option value="antimatter">Antimatter</option>
+                <option value="evil">Evil</option>
+                <option value="micro">Micro</option>
+                <option value="magic">Magic</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Death Link:</legend>
+            <input type="hidden" id="deathlink" name="deathlink" value="false">
+            <label for="deathlink">Death Link Active: </label><output id="deathTf" name="deathTF" for="deathlink" value="False">False</output><br>
+            <button type="button" id="deathlinkBtn" for="deathlink" onclick="deathTF.value=deathTF.value=='False'?'True':'False';deathlink.value=deathlink.value=='false'?'true':'false';">Toggle Death Link</button><br>
+            <label for="deathamn">Death Amnesty (1-10):</label><br>
+            <input type="range" id="deathamn" name="deathamn" min="0" max="10" value="1"><output name="deathamnCount" for="deathamn">1</output><br>
+            <label for="deathperc">Death Percent (10-100%):</label><br>
+            <input type="range" id="deathperc" name="deathperc" min="10" max="100" value="10"><output name="deathpercCount" for="deathperc">10</output><br>
+        </fieldset>
+        <fieldset>
+            <legend>Race Related:</legend>
+            <label for="genus">Genus:</label><br>
+            <select id="genus" name="genus">
+                <option value="other">Other</option>
+                <option value="carnivore">Carnivore</option>
+                <option value="avian">Avian</option>
+                <option value="plant">Plant</option>
+                <option value="heat">Heat</option>
+                <option value="angelic">Angelic</option>
+                <option value="fungi">Fungi</option>
+                <option value="demonic">Demonic</option>
+                <option value="synthetic">Synthetic</option>
+                <option value="eldritch">Eldritch</option>
+            </select><br>
+            <label for="prerace">Pre-Race (Gods):</label><br>
+            <select id="prerace" name="prerace"></select>
+        </fieldset>
+        <!-- radio, checkbox, submit, button -->
+        <!-- <input type="submit" value="Submit"> -->
+         <button type="submit">Create your YAML</button>
+    </form>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let prerace=document.getElementById("prerace")
+            let s=""
+            let races={none: 50,    human: 0,    elf: 0,    orc: 0,    kobold: 0,    goblin: 0,    gnome: 0,    ogre: 0,    cyclops: 0,    troll: 0,    tortoisan: 0,    gecko: 0,    sliheryn: 0,    cacti: 0,    pinguicula: 0,    sporgar: 0,    shroomi: 0,    moldling: 0,    mantis: 0,    scorpid: 0,    antid: 0,    sharkin: 0,    octigoran: 0,    dryad: 0,    satyr: 0,    phoenix: 0,    salamander: 0,    yeti: 0,    wendigo: 0,    tuskin: 0,    kamel: 0,    balrog: 0,    imp: 0,    seraph: 0,    unicorn: 0,    synth: 0,    nano: 0,    ghast: 0,    shoggoth: 0,    dwarf: 0,    lichen: 0,    wyvern: 0,    eye_spector: 0,    djinn: 0,    narwhalus: 0,    bombardier: 0,    nephilim: 0,    hellspawn: 0,    cath: 0,    wolven: 0,    vulpine: 0,    centaur: 0,    rhinotaur: 0,    capybara: 0,    araak: 0,    pterodacti: 0,    dracnid: 0,    ent: 0,    racconar: 0}
+            for(let i in races){
+                let si=i.toLocaleString()
+                s+=`<option value="${si}">${si[0].toUpperCase() +si.slice(1)}</option>`
+            }
+            prerace.innerHTML=s;
+
+        })
+        let form = document.getElementById("yamlform");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let formData = new FormData(form);
+            let elms=["name","plasmid","phage","antip","deathlink","deathamn","deathperc","genus","prerace","speed","govnr","relig","univ"]
+            let bits={}
+            let diffs={"deathlink":"deathTF","relig":"religTF","govnr":"govnrTF"}
+            for(let elm in elms){
+                let i=elms[elm]
+                bits[i]=formData.get(i)//diffs.hasOwnProperty(i)?diffs[i]:i)
+            }
+            // let username = formData.get("name");
+            // let age = formData.get("plasmid");
+
+            handleForm(bits);
+        });
+        function handleInp(inp){
+            if(inp=="true"||inp=="false")return inp=="true"
+            if (/^-?\d+$/.test(inp)) {
+                return parseInt(inp, 10);
+            }
+            return inp
+        }
+        function handleForm(bits) {
+            for(let i in bits){
+                bits[i]=handleInp(bits[i])
+            }
+            // const fs=require("fs")
+            let yamld={name:bits.name,description:"Evolve webuilt yaml",game:"Evolve",requires:{version:"0.6.6",game:{Evolve:"0.3.16"}},Evolve:{}}
+            delete bits.name
+            yamld.Evolve=bits
+            console.log(yamld);
+            // let blob = new Blob([yamlStr], { type: "text/yaml" });
+            // Create download link
+            let url = URL.createObjectURL(new Blob([jsyaml.dump(yamld)],{type:"text/yaml"}));
+            let a = document.createElement("a");
+
+            a.href = url;
+            a.download = yamld.name+".yaml";
+
+            a.click();
+
+            // Cleanup
+            URL.revokeObjectURL(url);
+            // fs.writeFileSync
+        }
+    </script>
+</body>
+</html>
