@@ -1,4 +1,6 @@
-# Evolve
+# Evolve - Archipelago Client!
+
+Made a client for Archipeligo! (This is a "port" from the previous repo)
 
 ## Play
 
