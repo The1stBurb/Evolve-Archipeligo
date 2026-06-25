@@ -25,6 +25,10 @@ import { enableDebug, updateDebugData } from './debug.js';
 
 import { login, initChatModule, triggerDeathLink } from './client.js';
 
+import { runTechr, RUN_TECHR } from '../ap_2/for_genes.js';
+import { runCreate, RUN_CREATE } from '../ap_2/create_tree_client.js';
+
+
 {
     $(document).ready(function() {
         if (!window.matchMedia)
@@ -171,7 +175,6 @@ $(document).mousemove(function(e){
 
 index();
 // login();
-initChatModule();
 var revision = global['revision'] ? global['revision'] : '';
 if (global['beta']){
     $('#topBar .version > a').html(`v${global.version} Beta ${global.beta}${revision}`);
@@ -181,6 +184,13 @@ else {
 }
 
 initMessageQueue();
+initChatModule();
+if(RUN_TECHR){
+    runTechr();
+}
+if(RUN_CREATE){
+    runCreate();
+}
 
 if (global.lastMsg){
     Object.keys(global.lastMsg).forEach(function (tag){

@@ -4,6 +4,8 @@
   "description": "Evolve Idle",
   "private": true,
   "scripts": {
+    "dev": "vite",
+    "build-vite": "vite build",
     "build": "npm run evolve && npm run evolve-less && npm run wiki && npm run wiki-less",
     "build-debug": "npm run evolve-debug && npm run evolve-less && npm run wiki-debug && npm run wiki-less",
     "build-win": "npm run evolve && npm run evolve-less-win && npm run wiki && npm run wiki-less-win",
@@ -37,13 +39,15 @@
     "csso-cli": "^4.0.2",
     "gh-pages": "^6.1.1",
     "ini": "^1.3.8",
-    "less": "^3.13.0",
-    "servehere": "^1.7.0"
+    "less": "^4.6.6",
+    "servehere": "^1.7.0",
+    "vite-plugin-static-copy": "^4.1.1"
   },
   "dependencies": {
     "archipelago.js": "^2.0.4",
-    "esbuild": "^0.25.0",
-    "node": "^16.1.0",
-    "npmcli": "^1.2.2"
+    "esbuild": "^0.27.7",
+    "node": "^20.20.2",
+    "npmcli": "^1.2.2",
+    "vite": "^8.0.16"
   }
 }

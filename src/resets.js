@@ -11,7 +11,7 @@ export function warhead(){
         if (!global['sim']){
             save.setItem('evolveBak',LZString.compressToUTF16(JSON.stringify(global)));
         }
-        clearSavedMessages();
+        // clearSavedMessages();
         reachedGoal()
         tagEvent('reset',{
             'end': 'mad'
@@ -81,7 +81,7 @@ export function warhead(){
         });
         
         save.setItem('evolved',LZString.compressToUTF16(JSON.stringify(global)));
-        window.location.reload();
+        // window.location.reload();
     }
 }
 

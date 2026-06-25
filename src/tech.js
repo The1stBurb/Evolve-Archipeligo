@@ -15,7 +15,7 @@ import { setPowerGrid, defineIndustry, addSmelter, setupRituals } from './indust
 import { defineGovernor, removeTask } from './governor.js';
 import { big_bang, cataclysm_end, descension, aiApocalypse } from './resets.js';
 
-const techs = {
+export const techs = {
     club: {
         id: 'tech-club',
         title: loc('tech_club'),

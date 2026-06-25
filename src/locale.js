@@ -9,7 +9,6 @@ export function loc(key, variables) {
     if (!string) {
         if (global.settings.expose){
             console.error(`string ${key} not found`);
-            console.log(strings);
         }
         return key;
     }
@@ -89,3 +88,18 @@ function getString(locale) {
 }
 
 
+export const locales = {
+    'en-US': 'English (US)',
+    'es-ES': 'Spanish (ESP)',
+    'pt-BR': 'Português (BR)',
+    'de-DE': 'Deutsch',
+    'it-IT': 'Italiano',
+    'ru-RU': 'Русский',
+    'cs-CZ': 'Čeština',
+    'pl-PL': 'Polski',
+    'zh-CN': '简体中文',
+    'zh-TW': '繁體中文',
+    'ko-KR': '한국어',
+    'im-PL': 'Igpay-Atinlay',
+    'ja-JP': '日本語' 
+};

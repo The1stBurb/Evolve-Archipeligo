@@ -1,0 +1,1005 @@
+{
+  "evolution": {
+    "sexual_reproduction": [
+      "evo-1"
+    ],
+    "spores": [
+      "evo_fungi-1"
+    ],
+    "poikilohydric": [
+      "evo_plant-1"
+    ],
+    "bilateral_symmetry": [
+      "evo_animal-1"
+    ],
+    "athropods": [
+      "evo_insectoid-1"
+    ],
+    "mammals": [
+      "evo_mammals-1"
+    ],
+    "humanoid": [
+      "evo_humanoid-1"
+    ],
+    "gigantism": [
+      "evo_giant-1"
+    ],
+    "dwarfism": [
+      "evo_small-1"
+    ],
+    "animalism": [
+      "evo_animalism-1"
+    ],
+    "carnivore": [
+      "evo_animalism-2"
+    ],
+    "herbivore": [
+      "evo_animalism-2"
+    ],
+    "omnivore": [
+      "evo_animalism-2",
+      "locked-1"
+    ],
+    "celestial": [
+      "evo_angelic-1"
+    ],
+    "demonic": [
+      "evo_demonic-1"
+    ],
+    "eldritch": [
+      "evo_eldritch-1"
+    ],
+    "aquatic": [
+      "evo_aquatic-1"
+    ],
+    "fey": [
+      "evo_fey-1"
+    ],
+    "heat": [
+      "evo_heat-1"
+    ],
+    "polar": [
+      "evo_polar-1"
+    ],
+    "sand": [
+      "evo_sand-1"
+    ],
+    "eggshell": [
+      "evo_eggshell-1"
+    ],
+    "endothermic": [
+      "evo_eggshell-2"
+    ],
+    "ectothermic": [
+      "evo_eggshell-2"
+    ]
+  },
+  "city": {
+    "replicator": [
+      "special_hack-1"
+    ]
+  },
+  "tech": {
+    "neutronium_walls": [
+      "gas_moon-1"
+    ],
+    "bolognium_alloy_beams": [
+      "gateway-3"
+    ],
+    "stellar_forge": [
+      "gateway-3"
+    ],
+    "bolognium_vaults": [
+      "gateway-3"
+    ],
+    "hellfire_furnace": [
+      "infernite-1"
+    ],
+    "ai_logistics": [
+      "proxima-2"
+    ],
+    "infernite_crates": [
+      "infernite-1"
+    ],
+    "bolognium_crates": [
+      "gateway-3"
+    ],
+    "adamantite_containers": [
+      "alpha-2"
+    ],
+    "bolognium_containers": [
+      "gateway-3"
+    ],
+    "hedge_funds": [
+      "stock_exchange-1"
+    ],
+    "exchange": [
+      "alpha-2"
+    ],
+    "neutronium_vault": [
+      "gas_moon-1"
+    ],
+    "adamantite_vault": [
+      "alpha-2"
+    ],
+    "tamper_proof_safe": [
+      "infernite-1"
+    ],
+    "tourism": [
+      "monuments-2"
+    ],
+    "xeno_tourism": [
+      "monuments-10"
+    ],
+    "observatory": [
+      "luna-1"
+    ],
+    "laboratory": [
+      "science-11",
+      "alpha-2"
+    ],
+    "alien_database": [
+      "conflict-5"
+    ],
+    "dimensional_tap": [
+      "ascension-7"
+    ],
+    "preparation_methods": [
+      "dish-4"
+    ],
+    "final_ingredient": [
+      "dish_reset-1"
+    ],
+    "crispr": [
+      "genetics-3"
+    ],
+    "lasers": [
+      "supercollider-1"
+    ],
+    "virtual_reality": [
+      "alpha-2",
+      "infernite-1"
+    ],
+    "metaphysics": [
+      "xeno-5"
+    ],
+    "divinity": [
+      "elysium-15",
+      "isle-2"
+    ],
+    "blood_pact": [
+      "b_stone-1"
+    ],
+    "waygate": [
+      "hell_spire-10"
+    ],
+    "demonic_infusion": [
+      "hell_spire-10",
+      "waygate-3"
+    ],
+    "purify_essence": [
+      "waygate-3",
+      "edenic-1"
+    ],
+    "study_corrupt_gem": [
+      "corrupt-1"
+    ],
+    "corrupt_gem_analysis": [
+      "corrupt-1"
+    ],
+    "codex_infernium": [
+      "hell_ruins-3"
+    ],
+    "stanene": [
+      "infernite-1"
+    ],
+    "pillars": [
+      "fusable-1"
+    ],
+    "adamantite_shovel": [
+      "alpha-2"
+    ],
+    "chainsaws": [
+      "alpha-2"
+    ],
+    "adamantite_hammer": [
+      "alpha-2"
+    ],
+    "adamantite_hoe": [
+      "alpha-2"
+    ],
+    "bac_tanks": [
+      "infernite-1"
+    ],
+    "disruptor_rifles": [
+      "infernite-1"
+    ],
+    "ethereal_weapons": [
+      "asphodel-5"
+    ],
+    "cruiser": [
+      "proxima-2"
+    ],
+    "adamantite_screws": [
+      "alpha-2"
+    ],
+    "cambridge_process": [
+      "supercollider-1"
+    ],
+    "pynn_partical": [
+      "supercollider-1"
+    ],
+    "higgs_boson": [
+      "supercollider-2"
+    ],
+    "dimensional_compression": [
+      "science-11",
+      "supercollider-3"
+    ],
+    "theology": [
+      "theology-1"
+    ],
+    "colonization": [
+      "mars-1"
+    ],
+    "hydroponics": [
+      "gateway-3"
+    ],
+    "swarm_plant": [
+      "gas_moon-1"
+    ],
+    "space_sourced": [
+      "asteroid-3"
+    ],
+    "dyson_net": [
+      "proxima-2"
+    ],
+    "dyson_sphere2": [
+      "piracy-1"
+    ],
+    "nav_beacon": [
+      "luna-1"
+    ],
+    "ram_scoops": [
+      "nebula-2"
+    ],
+    "elerium_prospecting": [
+      "nebula-2"
+    ],
+    "elerium_mining": [
+      "asteroid-4"
+    ],
+    "neutronium_housing": [
+      "gas_moon-1"
+    ],
+    "genesis": [
+      "genesis-1"
+    ],
+    "genetic_decay": [
+      "decay-1"
+    ],
+    "tachyon": [
+      "wsc-1"
+    ],
+    "habitat": [
+      "alpha-2",
+      "droids-1"
+    ],
+    "graphene": [
+      "infernite-1"
+    ],
+    "stellar_engine": [
+      "blackhole-2"
+    ],
+    "mass_ejector": [
+      "blackhole-4"
+    ],
+    "asteroid_redirect": [
+      "gateway-3"
+    ],
+    "exotic_infusion": [
+      "whitehole-1"
+    ],
+    "stabilize_blackhole": [
+      "whitehole-1"
+    ],
+    "veil": [
+      "blackhole-2"
+    ],
+    "gravitational_waves": [
+      "blackhole-4"
+    ],
+    "portal": [
+      "wsc-1"
+    ],
+    "sensor_drone": [
+      "infernite-1"
+    ],
+    "shield_generator": [
+      "gateway-3"
+    ],
+    "xeno_linguistics": [
+      "xeno-1"
+    ],
+    "cultural_exchange": [
+      "xeno-5"
+    ],
+    "industrial_partnership": [
+      "xeno-9"
+    ],
+    "advanced_telemetry": [
+      "xeno-5"
+    ],
+    "defense_platform": [
+      "stargate-5",
+      "piracy-1"
+    ],
+    "scout_ship": [
+      "gateway-3"
+    ],
+    "corvette_ship": [
+      "xeno-1"
+    ],
+    "ship_dock": [
+      "gateway-3"
+    ],
+    "ore_processor": [
+      "conflict-2"
+    ],
+    "coordinates": [
+      "conflict-5"
+    ],
+    "dial_it_to_11": [
+      "quaked-1"
+    ],
+    "limit_collider": [
+      "quaked-1"
+    ],
+    "mana_nexus": [
+      "luna-1"
+    ],
+    "outerplane_summon": [
+      "forbidden-4",
+      "hell_spire-10",
+      "waygate-3"
+    ],
+    "dark_bomb": [
+      "hell_spire-10",
+      "waygate-2"
+    ],
+    "bribe_sphinx": [
+      "hell_spire-8"
+    ],
+    "ai_optimizations": [
+      "titan_ai_core-1",
+      "dig_control-1"
+    ],
+    "protocol66": [
+      "corrupted_ai-1"
+    ],
+    "terraforming_tp": [
+      "dig_control-1",
+      "eris-2"
+    ],
+    "quantium": [
+      "supercollider-10"
+    ],
+    "higgs_boson_tp": [
+      "supercollider-2"
+    ],
+    "data_analysis": [
+      "outer-3"
+    ],
+    "nav_data": [
+      "outer-6"
+    ],
+    "dronewar": [
+      "eris-2",
+      "titan_ai_core-1"
+    ],
+    "virtual_reality_tp": [
+      "titan-4"
+    ],
+    "electrolysis": [
+      "titan-2"
+    ],
+    "storehouse": [
+      "titan-4"
+    ],
+    "adamantite_vault_tp": [
+      "titan-4"
+    ],
+    "hydrogen_plant": [
+      "titan-4"
+    ],
+    "water_mining": [
+      "titan-2"
+    ],
+    "mercury_smelting": [
+      "titan-4"
+    ],
+    "adamantite_crates": [
+      "titan-4"
+    ],
+    "bolognium_crates_tp": [
+      "tauceti-4"
+    ],
+    "adamantite_containers_tp": [
+      "titan-4"
+    ],
+    "shipyard": [
+      "syndicate-1"
+    ],
+    "ship_lasers": [
+      "syard_weapon-1"
+    ],
+    "destroyer_ship": [
+      "syard_class-2"
+    ],
+    "cruiser_ship_tp": [
+      "titan-4"
+    ],
+    "pulse_engine": [
+      "syard_engine-2"
+    ],
+    "ship_fusion": [
+      "syard_power-3"
+    ],
+    "quantum_signatures": [
+      "syard_sensor-3"
+    ],
+    "alien_outpost": [
+      "tauceti-2"
+    ],
+    "jumpgates": [
+      "tauceti-2"
+    ],
+    "system_survey": [
+      "tauceti-4",
+      "womling_tech-1"
+    ],
+    "repository": [
+      "tauceti-4"
+    ],
+    "weasels": [
+      "tau_red-2"
+    ],
+    "womling_mining": [
+      "womling_tech-1"
+    ],
+    "womling_firstaid": [
+      "womling_tech-2"
+    ],
+    "womling_logistics": [
+      "womling_tech-3"
+    ],
+    "womling_repulser": [
+      "womling_tech-4"
+    ],
+    "womling_farming": [
+      "womling_tech-5"
+    ],
+    "womling_housing": [
+      "womling_tech-6"
+    ],
+    "womling_support": [
+      "womling_tech-7"
+    ],
+    "womling_recycling": [
+      "womling_tech-8"
+    ],
+    "belt_mining": [
+      "tau_gas-3"
+    ],
+    "adv_belt_mining": [
+      "tau_roid-4"
+    ],
+    "space_whaling": [
+      "tau_gas-3"
+    ],
+    "infectious_disease_lab": [
+      "plague-2"
+    ],
+    "isolation_protocol": [
+      "disease-2"
+    ],
+    "focus_cure": [
+      "disease-2"
+    ],
+    "decode_virus": [
+      "focus_cure-1"
+    ],
+    "vaccine_campaign": [
+      "focus_cure-3"
+    ],
+    "vax_strat1": [
+      "focus_cure-5"
+    ],
+    "vax_strat2": [
+      "focus_cure-5"
+    ],
+    "vax_strat3": [
+      "focus_cure-5"
+    ],
+    "vax_strat4": [
+      "focus_cure-5"
+    ],
+    "cloning": [
+      "focus_cure-7"
+    ],
+    "iso_gambling": [
+      "isolation-1"
+    ],
+    "outpost_boost": [
+      "isolation-1"
+    ],
+    "cultural_center": [
+      "isolation-1"
+    ],
+    "outer_tau_survey": [
+      "plague-5"
+    ],
+    "alien_research": [
+      "tau_gas2-5"
+    ],
+    "womling_gene_therapy": [
+      "alien_data-1"
+    ],
+    "food_culture": [
+      "alien_data-2"
+    ],
+    "advanced_refinery": [
+      "alien_data-3"
+    ],
+    "advanced_pit_mining": [
+      "alien_data-3"
+    ],
+    "useless_junk": [
+      "alien_data-4"
+    ],
+    "advanced_asteroid_mining": [
+      "alien_data-5"
+    ],
+    "advanced_material_synthesis": [
+      "alien_data-5"
+    ],
+    "matrioshka_brain": [
+      "alien_data-6"
+    ],
+    "ignition_device": [
+      "alien_data-6"
+    ],
+    "replicator": [
+      "isolation-1"
+    ],
+    "garden_of_eden": [
+      "eden-1"
+    ],
+    "purification": [
+      "hell_spire-10"
+    ],
+    "asphodel_mech": [
+      "asphodel-5"
+    ],
+    "elerium_cannon": [
+      "isle-1"
+    ],
+    "rushmore": [
+      "elysium-15"
+    ],
+    "spirit_syphon": [
+      "isle-3"
+    ],
+    "energy_drain": [
+      "palace-4"
+    ],
+    "hellspawn_tunnelers": [
+      "hellspawn-1"
+    ],
+    "hellfire": [
+      "hellspawn-5"
+    ],
+    "spire_bazaar": [
+      "hell_spire-10"
+    ]
+  },
+  "arpa": {
+    "roid_eject": [
+      "gateway-3"
+    ]
+  },
+  "genes": {},
+  "blood": {},
+  "space": {
+    "spc_home": {
+      "test_launch": [
+        "space-1"
+      ]
+    },
+    "spc_moon": {
+      "iridium_mine": [
+        "luna-1"
+      ],
+      "helium_mine": [
+        "luna-1"
+      ],
+      "observatory": [
+        "luna-1"
+      ]
+    },
+    "spc_red": {
+      "atmo_terraformer": [
+        "terraforming-2"
+      ],
+      "terraform": [
+        "terraforming-3"
+      ],
+      "living_quarters": [
+        "mars-1"
+      ],
+      "vr_center": [
+        "mars-1"
+      ],
+      "garage": [
+        "mars-1"
+      ],
+      "red_mine": [
+        "mars-1"
+      ],
+      "fabrication": [
+        "mars-1"
+      ],
+      "red_university": [
+        "mars-1"
+      ]
+    },
+    "spc_hell": {},
+    "spc_sun": {},
+    "spc_gas": {},
+    "spc_gas_moon": {
+      "outpost": [
+        "gas_moon-1"
+      ],
+      "drone": [
+        "gas_moon-1"
+      ],
+      "oil_extractor": [
+        "gas_moon-2"
+      ]
+    },
+    "spc_belt": {
+      "iridium_ship": [
+        "asteroid-3"
+      ],
+      "iron_ship": [
+        "asteroid-3"
+      ]
+    },
+    "spc_dwarf": {
+      "world_controller": [
+        "science-11"
+      ],
+      "m_relay": [
+        "outer-6"
+      ]
+    },
+    "spc_titan": {
+      "titan_quarters": [
+        "titan-4"
+      ],
+      "titan_mine": [
+        "titan-4"
+      ],
+      "ai_core2": [
+        "titan_ai_core-1"
+      ]
+    },
+    "spc_enceladus": {},
+    "spc_triton": {
+      "lander": [
+        "triton-3"
+      ],
+      "crashed_ship": [
+        "triton-3"
+      ]
+    },
+    "spc_kuiper": {},
+    "spc_eris": {}
+  },
+  "interstellar": {
+    "int_alpha": {
+      "mining_droid": [
+        "alpha-2"
+      ],
+      "processing": [
+        "droids-1"
+      ],
+      "warehouse": [
+        "alpha-2"
+      ]
+    },
+    "int_proxima": {
+      "cargo_yard": [
+        "proxima-2"
+      ]
+    },
+    "int_nebula": {
+      "harvester": [
+        "nebula-2"
+      ]
+    },
+    "int_neutron": {},
+    "int_blackhole": {
+      "s_gate": [
+        "stargate-4"
+      ]
+    },
+    "int_sirius": {
+      "gravity_dome": [
+        "ascension-5"
+      ],
+      "ascension_machine": [
+        "ascension-6"
+      ],
+      "ascension_trigger": [
+        "ascension-7"
+      ],
+      "ascend": [
+        "ascension-8"
+      ],
+      "thermal_collector": [
+        "ascension-6"
+      ]
+    }
+  },
+  "galaxy": {
+    "gxy_gateway": {
+      "gateway_mission": [
+        "gateway-1"
+      ],
+      "bolognium_ship": [
+        "gateway-3"
+      ]
+    },
+    "gxy_stargate": {
+      "gateway_station": [
+        "stargate-4"
+      ],
+      "telemetry_beacon": [
+        "stargate-5"
+      ]
+    },
+    "gxy_gorddon": {
+      "freighter": [
+        "xeno-5"
+      ]
+    },
+    "gxy_alien1": {
+      "resort": [
+        "xeno-9"
+      ],
+      "super_freighter": [
+        "xeno-9"
+      ]
+    },
+    "gxy_alien2": {
+      "armed_miner": [
+        "conflict-2"
+      ]
+    },
+    "gxy_chthonian": {}
+  },
+  "starDock": {
+    "prep_ship": [
+      "genesis-6"
+    ],
+    "launch_ship": [
+      "genesis-7"
+    ]
+  },
+  "portal": {
+    "prtl_fortress": {},
+    "prtl_badlands": {
+      "codex": [
+        "war_vault-1"
+      ]
+    },
+    "prtl_wasteland": {
+      "throne": [
+        "hellspawn-1"
+      ],
+      "incinerator": [
+        "hellspawn-1"
+      ],
+      "warehouse": [
+        "hellspawn-1"
+      ],
+      "hovel": [
+        "hellspawn-1"
+      ],
+      "hell_casino": [
+        "hellspawn-1"
+      ],
+      "twisted_lab": [
+        "hellspawn-1"
+      ],
+      "demon_forge": [
+        "hellspawn-1"
+      ],
+      "hell_factory": [
+        "hellspawn-1"
+      ],
+      "pumpjack": [
+        "hellspawn-1"
+      ],
+      "dig_demon": [
+        "hellspawn-1"
+      ],
+      "brute": [
+        "hellspawn-1"
+      ]
+    },
+    "prtl_pit": {
+      "pit_mission": [
+        "hell_pit-1"
+      ]
+    },
+    "prtl_ruins": {
+      "vault": [
+        "hell_vault-1"
+      ],
+      "war_vault": [
+        "war_vault-1"
+      ]
+    },
+    "prtl_gate": {},
+    "prtl_lake": {
+      "lake_mission": [
+        "hell_lake-1"
+      ],
+      "oven_complete": [
+        "dish-3"
+      ],
+      "devilish_dish": [
+        "dish-3"
+      ]
+    },
+    "prtl_spire": {
+      "spire_mission": [
+        "hell_spire-1"
+      ],
+      "base_camp": [
+        "hell_spire-4"
+      ],
+      "bridge": [
+        "hell_spire-5"
+      ],
+      "sphinx": [
+        "hell_spire-6"
+      ],
+      "bribe_sphinx": [
+        "hell_spire-7"
+      ],
+      "spire_survey": [
+        "hell_spire-8"
+      ],
+      "edenic_gate": [
+        "waygate-3"
+      ]
+    }
+  },
+  "tauceti": {
+    "tau_star": {
+      "matrix": [
+        "matrix-3"
+      ],
+      "blue_pill": [
+        "matrix-4"
+      ]
+    },
+    "tau_home": {
+      "home_mission": [
+        "tauceti-2"
+      ],
+      "tau_housing": [
+        "isolation-1"
+      ],
+      "captive_housing": [
+        "isolation-1"
+      ],
+      "horseshoe": [
+        "isolation-1"
+      ],
+      "bonfire": [
+        "isolation-1"
+      ],
+      "firework": [
+        "isolation-1"
+      ],
+      "assembly": [
+        "isolation-1"
+      ],
+      "nanite_factory": [
+        "isolation-1"
+      ],
+      "tauceti_casino": [
+        "isolation-1"
+      ]
+    },
+    "tau_red": {
+      "red_mission": [
+        "tauceti-2"
+      ],
+      "orbital_platform": [
+        "tauceti-4"
+      ]
+    },
+    "tau_gas": {},
+    "tau_roid": {
+      "mining_ship": [
+        "tau_roid-4"
+      ],
+      "whaling_ship": [
+        "tau_whale-2"
+      ]
+    },
+    "tau_gas2": {
+      "alien_space_station": [
+        "tau_gas2-5"
+      ],
+      "ignite_gas_giant": [
+        "m_ignite-1"
+      ]
+    }
+  },
+  "eden": {
+    "eden_asphodel": {
+      "survery_meadows": [
+        "edenic-3"
+      ]
+    },
+    "eden_elysium": {
+      "survey_fields": [
+        "elysium-2"
+      ],
+      "ruined_fortress": [
+        "elysium-4"
+      ],
+      "scout_elysium": [
+        "elysium-4"
+      ],
+      "north_pier": [
+        "isle-2"
+      ]
+    },
+    "eden_isle": {
+      "south_pier": [
+        "isle-2"
+      ],
+      "west_tower": [
+        "isle-1"
+      ],
+      "isle_garrison": [
+        "isle-1"
+      ],
+      "east_tower": [
+        "isle-1"
+      ]
+    },
+    "eden_palace": {
+      "scout_palace": [
+        "palace-1"
+      ],
+      "apotheosis": [
+        "palace-7"
+      ]
+    }
+  },
+  "ap_init": {},
+  "itemcount": {},
+  "setupComplete": {},
+  "opts": {},
+  "ap": {},
+  "gameSeed": {},
+  "offlineLocs": {}
+}

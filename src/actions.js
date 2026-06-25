@@ -955,7 +955,6 @@ export const actions = {
                     global.settings.showPowerGrid = true;
                     setPowerGrid();
                 }
-                // console.log(global.settings.showPowerGrid,global.city["power"],global.city["powered"])
                 return -1;
                 if (payCosts($(this)[0])){//&&args&&args=="itemFound"){
                     incrementStruct('ap_power_bonus','city');
@@ -5330,7 +5329,7 @@ function genus_condition(r,t){
     return ((global.tech[t] && global.tech[t] === r) || (global.evolution['gselect'])) && f < 100;
 }
 
-const raceList = [
+export const raceList = [
     'human','orc','elven',
     'troll','ogre','cyclops',
     'kobold','goblin','gnome',
@@ -5356,6 +5355,7 @@ const raceList = [
 ];
 const cantUseRace=["entish","sharkin","dryad","wendigo","balorg","unicorn","shoggoth","lichen","wyvern","beholder","narhwal","bombardier","nephilim"]
 const specialGenus=["carnivore","avian","plant","heat","angelic","fungi","demonic","synthetic","eldritch"]
+
 raceList.forEach(function(race){
     if (!['custom','hybrid'].includes(race) || (race === 'custom' && global.custom.hasOwnProperty('race0')) || (race === 'hybrid' && global.custom.hasOwnProperty('race1')) ){
         if (race === 'hybrid' && global.custom.race1.genus !== 'hybrid'){
@@ -5376,7 +5376,7 @@ raceList.forEach(function(race){
                     if (global.tech[`evo_${t}`] >= 2){ typeCheck = true; }
                 });
                  
-                console.log(race,global.ap_genus,races[race].type,(global.ap_genus=='other'?!specialGenus.includes(races[race].type):global.ap_genus==races[race].type))
+                // console.log(race,global.ap_genus,races[race].type,(global.ap_genus=='other'?!specialGenus.includes(races[race].type):global.ap_genus==races[race].type))
                 return (
                 // (global.race.seeded 
                     // || (global.stats.achieve['mass_extinction'] && global.stats.achieve['mass_extinction'].l >= 1) 
@@ -6115,45 +6115,60 @@ export function checkTechRequirements(tech,predList){
 }
 
 export function checkTechQualifications(c_action,type){
+    let probs=[];
     if (c_action['condition'] && !c_action.condition()){
-        return false;
+        probs.push(['condition',c_action.condition.toString()])
+        // return false;
     }
     if (c_action['not_trait']){
         for (let i=0; i<c_action.not_trait.length; i++){
             if (global.race[c_action.not_trait[i]]){
-                return false;
+                probs.push(['not_trait',c_action.not_trait[i]]);
+                // return false;
             }
         }
     }
     if (c_action['trait']){
         for (let i=0; i<c_action.trait.length; i++){
             if (!global.race[c_action.trait[i]]){
-                return false;
+                probs.push(['trait',c_action.trait[i]]);
+                // return false;
             }
         }
     }
     if (c_action['not_gene']){
         for (let i=0; i<c_action.not_gene.length; i++){
             if (global.genes[c_action.not_gene[i]]){
-                return false;
+                probs.push(['not_gene',c_action.not_gene[i]]);
+                // return false;
             }
         }
     }
     if (c_action['gene']){
         for (let i=0; i<c_action.gene.length; i++){
             if (!global.genes[c_action.gene[i]]){
-                return false;
+                probs.push(['gene',c_action.gene[i]]);
+                // return false;
             }
         }
     }
     if (c_action['not_tech']){
         for (let i=0; i<c_action.not_tech.length; i++){
             if (global.tech[c_action.not_tech[i]]){
-                return false;
+                probs.push(['not_tech',c_action.not_tech[i]]);
+                // return false;
             }
         }
     }
-    return true;
+    // console.log(probs);
+    if(type == 'yep'){
+        return probs;
+    }
+    if(probs.length == 0 ){
+        return true
+    }
+    return false;
+    // return probs;
 }
 
 function checkOldTech(tech){
@@ -6274,7 +6289,7 @@ export function drawCity(){
                 .append(`<div><h3 class="name has-text-warning">${loc(`city_dist_${category}`)}</h3></div>`);
 
             city_buildings[category].forEach(function(city_name) {
-                if(city_name=="ap_power"){console.log("and here")}
+                // if(city_name=="ap_power"){console.log("and here")}
                 addAction('city', city_name);
             });
 
@@ -6509,7 +6524,6 @@ export function setAction(c_action,action,type,old,prediction){
         if (switchable){
             let powerOn = $(`<span role="button" :aria-label="on_label()" class="on" @click="power_on" title="ON" v-html="$options.filters.p_on(act.on,'${c_action.id}')"></span>`);
             let powerOff = $(`<span role="button" :aria-label="off_label()" class="off" @click="power_off" title="OFF" v-html="$options.filters.p_off(act.on,'${c_action.id}')"></span>`);
-            console.log(switchable)
             if(switchable=="only_on"){
                 parent.append(powerOn);
                 // parent.append(powerOff);
@@ -6860,21 +6874,17 @@ export function runAction(c_action,action,type){
 }
 
 export function postBuild(c_action,action,type){
-    console.log("is in here now")
     if (!checkAffordable(c_action)){
         let id = c_action.id;
         $(`#${id}`).addClass('cna');
-        console.log("not affordable")
     }
     if (c_action['grant']){
-        console.log("is grant")
         let tech = c_action.grant[0];
         if (!global.tech[tech] || global.tech[tech] < c_action.grant[1]){
             global.tech[tech] = c_action.grant[1];
         }
     }
     if (c_action['grant'] || c_action['refresh']){
-        console.log("is grant or refresh")
         removeAction(c_action.id);
         if (global.race.species === 'protoplasm'){
             drawEvolution();
@@ -6889,7 +6899,6 @@ export function postBuild(c_action,action,type){
         }
     }
     if (c_action['post']){
-        console.log("is post")
         callback_queue.set([c_action, 'post'], []);
     }
     updateDesc(c_action,action,type);
@@ -7312,7 +7321,6 @@ export function getStructNumActive(c_action,wiki){
         else {
             num_on = 0;
         }
-        console.log(parts,num_on)
     }
 
     // Support: production is positive, consumption is negative
@@ -7779,7 +7787,6 @@ export function removeAction(id){
 export function updateDesc(c_action,category,action){
     var id = c_action.id;
     if (global[category] && global[category][action] && global[category][action]['count']){
-        console.log("in the first one")
         if(!c_action.hasOwnProperty('count')){
             $(`#${id} .count`).html(global[category][action].count);
         }
@@ -7791,7 +7798,6 @@ export function updateDesc(c_action,category,action){
         }
     }
     if ($('#popper').data('id') === id){
-        console.log("in the second")
         actionDesc($('#popper'),c_action,global[category][action],false,category,action);
     }
 }
@@ -7907,7 +7913,6 @@ function checkMaxCosts(costs){
             }
         }
         else if (res === 'Army'){
-                    console.log("actions1")
             if (armyRating(global.civic.garrison.raid,'army') < Number(costs[res]())){
                 test = false;
                 return;
@@ -7982,7 +7987,6 @@ export function checkCosts(costs){
             }
         }
         else if (res === 'Army'){
-                    console.log("actions2")
             if (armyRating(global.civic.garrison.raid,'army') < Number(costs[res]())){
                 test = false;
                 return;
@@ -8610,7 +8614,7 @@ function evoExtraState(race){
     }
 }
 
-function sentience(){
+export function sentience(){
     if (global.race['simulation']){
         simulation();
     }
@@ -9229,13 +9233,13 @@ function sentience(){
         global.queue.queue = [];
     }
 
-    if (global.race['slow'] || global.race['hyper'] || global.race.species === 'junker'){
-        save.setItem('evolved',LZString.compressToUTF16(JSON.stringify(global)));
-        if (webWorker.w){
-            webWorker.w.terminate();
-        }
-        window.location.reload();
-    }
+    // if (global.race['slow'] || global.race['hyper'] || global.race.species === 'junker'){
+    //     save.setItem('evolved',LZString.compressToUTF16(JSON.stringify(global)));
+    //     if (webWorker.w){
+    //         webWorker.w.terminate();
+    //     }
+    //     window.location.reload();
+    // }
 }
 
 function simulation(){

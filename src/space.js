@@ -8015,7 +8015,6 @@ export function ascendLab(hybrid,wiki){
                         });
                         if (formatError){
                             error.msg = loc(`string_pack_error`,[file.name]);
-                            console.log('format fail');
                             return;
                         }
 

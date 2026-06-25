@@ -24,9 +24,7 @@ export function mainVue(){
         },
         methods: {
             swapTab(tab){
-                console.log("swap",tab)
                 if (!global.settings.tabLoad){
-                    console.log("yes")
                     loadTab(tab);
                 }
                 return tab;

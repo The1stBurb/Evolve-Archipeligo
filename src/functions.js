@@ -177,7 +177,6 @@ export function addATime(currentTimestamp){
     // The second case is used for the initialization of atrack.t.
     
     if (exceededATimeThreshold(currentTimestamp) || global.stats.hasOwnProperty('current') && global.settings.at > 0){
-        console.log("tm",currentTimestamp)
         let timeDiff = currentTimestamp - global.stats.current;
         // Removing any accelerated time if the value is larger than the cap.
         if (global.settings.at > 11520){

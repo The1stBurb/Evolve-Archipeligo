@@ -4369,7 +4369,6 @@ export function bloodwar(){
     }
     let brkpnt = +(wounded % 1).toFixed(10);
     day_report.patrols = {};
-    console.log("\n\n")
     for (let i=0; i<global.portal.fortress.patrols; i++){
         let patrol_report = { encounter: false, droid: false, ambush: false, gem: 0, kills: 0, wounded: 0, died: 0};
         let hurt = brkpnt > (1 / global.portal.fortress.patrols * i) ? Math.ceil(wounded) : Math.floor(wounded);
@@ -4385,7 +4384,6 @@ export function bloodwar(){
             let pat_rating = Math.round(armyRating(pat_size,'hellArmy',hurt));
 
             let demons = Math.rand(Math.floor(global.portal.fortress.threat / 50), Math.floor(global.portal.fortress.threat / 10));
-            console.log(global.portal.fortress.threat,global.portal.fortress.threat/50,global.portal.fortress.threat/10,demons,gem_chance,pat_rating)
             if (global.race['blood_thirst']){
                 global.race['blood_thirst_count'] += Math.rand(0,Math.ceil(demons / 10));
                 if (global.race['blood_thirst_count'] > traits.blood_thirst.vars()[0]){
@@ -4439,7 +4437,6 @@ export function bloodwar(){
                     let div = 35 - Math.floor(p_on['attractor'] / 3);
                     if (div < 5){ div = 5; }
                     let chances = Math.round(killed / div);
-                    console.log(chances,killed,div)
                     for (let j=0; j<chances; j++){
                         if (Math.rand(0,gem_chance) === 0){
                             patrol_report.gem++;

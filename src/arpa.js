@@ -2411,9 +2411,7 @@ function bindTrait(breakdown,trait){
 }
 
 function crispr(overRide){
-    console.log("is it work?")
     if ((global.tech['genetics'] && global.tech['genetics'] > 3) || global['sim']||global.ap||overRide){
-        console.log("it worked?")
         clearElement($('#arpaCrispr'));
         $('#arpaCrispr').append(`<div class="has-text-warning">${loc('arpa_crispr_desc')}</div>`);
         $('#arpaCrispr').append('<div id="genes"></div>');
